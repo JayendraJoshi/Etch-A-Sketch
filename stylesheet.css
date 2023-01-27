@@ -7,14 +7,17 @@ height: 100vh;
 text-align:  center;
 }
 
+button{
+    width:100px;
+    height:auto;
+    margin:20px;
+    padding:20px;
+}
 .container{
 display: grid;
-grid-template-columns: repeat(16,1fr);
-grid-template-rows: repeat(16,1fr);
 height: 100%;
 width: 100%;
 }
-
 .colorDiv:hover{
     background-color: black;
 }
