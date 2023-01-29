@@ -23,14 +23,17 @@ slider.addEventListener("input",function(element){
                 let b=randomRgbValue();
 
                     divs.forEach(element => {
-                        element.addEventListener("mouseover",function(){               
-                        element.style.backgroundColor=`rgb(${r},${g},${b})`;
-        
+                        element.addEventListener("mouseover",function(){ 
+                        if(document.querySelector(".color").checked===true){
+                            element.style.backgroundColor=`rgb(${r},${g},${b})`;
+                            }
                         })
                     });
                     divs.forEach(element=>{
-                        element.addEventListener("mouseout",function(){
-                        element.style.backgroundColor="";
+                        element.addEventListener("mouseover",function(){
+                        if(document.querySelector(".erase").checked===true){
+                            element.style.backgroundColor="";
+                            }
                         })
                     })             
     });
