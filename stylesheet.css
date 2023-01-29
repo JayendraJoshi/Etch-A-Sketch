@@ -17,10 +17,15 @@ border-color: black;
 border-style: solid;
 border-width: 1px;
 }
-.tools{
+.tool-Bar{
     display:flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
+    align-items: center;
+}
+.option-Container{
+    display:flex;
+    flex-direction: column;
 }
 input[type="range"][orient="vertical"]{
     writing-mode: bt-lr;

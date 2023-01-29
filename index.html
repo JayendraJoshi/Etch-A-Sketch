@@ -9,11 +9,28 @@
     <script src='javascript.js' defer></script>
 </head>
 <body>
-    <div class="tools">
-        <input class="slider" type="range" max="100" min="2" step="1" orient="vertical" value="2">
-        <output class="output"></output>
-        <input type="radio" class="erase" name="option" ><label for=".erase">erase</label>
-        <input type="radio" class="color" name="option" checked="true" ><label for=".color">color</label>
+    <div class="tool-Bar">
+        <div class="slider-Container">
+            <input class="slider" type="range" max="50" min="5" step="1" orient="vertical" value="2">
+            <output class="output"></output>
+        </div>
+        <div class="option-Container">
+            <div class="erase-Container">
+                <input type="radio" class="erase" name="option" ><label for=".erase">erase</label>
+            </div>
+            <div class="brush-Container">
+                <input type="radio" class="brush" name="option" checked="true" ><label for=".brush">brush</label>
+             </div>
+        </div>
+        <div class="color-Container">
+            <input type="color" class="color" value="#ff0000"/><label for=".color">color</label>
+        </div>  
+
+        <div class="reset-Container">
+            <button class="reset">reset colors</button>
+        </div>
+
+    
     </div>
     <div class="container">
     </div>

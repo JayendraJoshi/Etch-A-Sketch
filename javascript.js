@@ -1,83 +1,87 @@
 const divContainer =document.querySelector(".container")
 const slider=document.querySelector(".slider");
-const output=document.querySelector(".output")
+const output=document.querySelector(".output");
+const color=document.querySelector(".color");
+const resetBtn=document.querySelector(".reset");
+
+let divsArray;
+let div;
 let mouseIsDown=false;
+let colorValue = color.value;
 
 slider.addEventListener("input",function(element){
-
-    output.textContent=this.value;
+    createGrid();
+    paint();
+});
+function reset(){
+  divContainer.textContent="";
+}
+function createGrid(){
+    output.textContent=slider.value;
     let n= output.textContent;
         reset();
         for(i=0;i<n*n;i++)
         {
-            let Div=document.createElement("div");
-            Div.setAttribute("class","colorDiv");
-            divContainer.appendChild(Div);
+            div=document.createElement("div");
+            div.setAttribute("class","colorDiv");
+            divContainer.setAttribute("draggable",false);
+            divContainer.appendChild(div);
         }
         divContainer.style.gridTemplateColumns=`repeat(${n},1fr)`;
         divContainer.style.gridTemplateRows=`repeat(${n},1fr)`;
         
-            let divs=document.querySelectorAll(".colorDiv");
-
-                let r=randomRgbValue();
-                let g=randomRgbValue();
-                let b=randomRgbValue();
-
-                            //colors single div
-                    divs.forEach(element=>{
-                        element.addEventListener("click",function(){
-                             if(document.querySelector(".color").checked===true){
-                                    element.style.backgroundColor=`rgb(${r},${g},${b})`;                                 
-                                }           
-                                else if(document.querySelector(".erase").checked===true)
-                                        {   
-                                            element.style.backgroundColor="";                                    
-                                        }   
-                        })
-                    });
-                        //colors multiple divs
-                    divs.forEach(element => {                        
-                        element.addEventListener("pointerover",function(){                            
-                                if(document.querySelector(".color").checked===true && mouseIsDown===true){
-                                    element.style.backgroundColor=`rgb(${r},${g},${b})`;                                 
-                                    }           
-                                else if(document.querySelector(".erase").checked===true &&mouseIsDown===true)
-                                        {
-                                            element.style.backgroundColor="";                                    
-                                        }                                     
-                        })  
-                    });     
-                    //colors first of multiple divs
-                    divs.forEach(element=>{
-                        element.addEventListener("mousedown",function(){
-                            if(document.querySelector(".color").checked===true){
-                                    element.style.backgroundColor=`rgb(${r},${g},${b})`;                                 
-                                }           
-                            else if(document.querySelector(".erase").checked===true)
-                                    {
-                                        element.style.backgroundColor="";                                    
-                                    }  
-                        })
-                    })
-
-    });
-
-function randomRgbValue(max){
-    max=255;    
-  return Math.floor((Math.random()* max));
+             divsArray=document.querySelectorAll(".colorDiv");
 }
-function reset(){
-  divContainer.textContent="";
+function paint(){
+    //colors single div
+    divsArray.forEach(element=>{
+        element.addEventListener("click",function(){
+            if(document.querySelector(".brush").checked===true){
+                element.style.backgroundColor=`${colorValue}`;                                 
+            }           
+            else if(document.querySelector(".erase").checked===true){   
+                    element.style.backgroundColor="";                                    
+            }   
+        })
+    });
+    //colors multiple divsArray
+    divsArray.forEach(element => {                        
+        element.addEventListener("pointerover",function(){                            
+            if(document.querySelector(".brush").checked===true && mouseIsDown===true){
+                element.style.backgroundColor=`${colorValue}`;                                 
+            }           
+            else if(document.querySelector(".erase").checked===true &&mouseIsDown===true){
+                element.style.backgroundColor="";                                    
+            }                                     
+        })  
+    });     
+    //colors first of multiple divsArray
+    divsArray.forEach(element=>{
+        element.addEventListener("mousedown",function(){
+            if(document.querySelector(".brush").checked===true){
+                element.style.backgroundColor=`${colorValue}`;                                 
+            }           
+            else if(document.querySelector(".erase").checked===true)
+            {
+            element.style.backgroundColor="";                                    
+            }  
+        })
+    })
 }
 slider.addEventListener("input",function(element){
-    output.textContent=this.value;
-    console.log(element);
+    output.textContent=(this.value + "*" + this.value)
 })
-
-divContainer.addEventListener("pointerdown",function(){
+document.body.addEventListener("pointerdown",function(){
     mouseIsDown=true;
 })
-divContainer.addEventListener("pointerup",function(){
+document.body.addEventListener("pointerup",function(){
     mouseIsDown=false;
 })
-
+color.addEventListener("input",function(){
+colorValue=color.value;
+})
+resetBtn.addEventListener("click",function(){
+divsArray.forEach(element=>{
+element.style.backgroundColor="";
+})
+})
