@@ -1,9 +1,12 @@
 const divContainer =document.querySelector(".container")
+const slider=document.querySelector(".slider");
+const output=document.querySelector(".output")
 
-    document.querySelector("button").addEventListener("click",function(){   
-        let n=prompt("Enter a number to apply grid size (example: 64 = 64x64)")
+slider.addEventListener("input",function(element){
+
+    output.textContent=this.value;
+    let n= output.textContent;
         reset();
-
         for(i=0;i<n*n;i++)
         {
             let Div=document.createElement("div");
@@ -40,3 +43,10 @@ function randomRgbValue(max){
 function reset(){
   divContainer.textContent="";
 }
+
+slider.addEventListener("input",function(element){
+
+    output.textContent=this.value;
+    console.log(element);
+
+})
