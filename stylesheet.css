@@ -6,22 +6,37 @@ body{
 height: 100vh;
 text-align:  center;
 display: flex;
+flex-direction: column;
 }
-.container{
+h1{
+    font-size: 80px;
+    min-height: 125px;
+    flex-basis: 0;
+    flex-grow: 2;
+}
+.grid{
 display: grid;
 height: 100%;
 width: 100%;
+}
+.grid-Container{
+flex-grow: 1;
+margin-right: 250px;
+margin-left: 250px;
 }
 .colorDiv{
 border-color: black;
 border-style: solid;
 border-width: 1px;
 }
+
 .tool-Bar{
     display:flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    flex-basis: 0;
+    width: 130px;
 }
 .option-Container{
     display:flex;
@@ -33,4 +48,13 @@ input[type="range"][orient="vertical"]{
 }
 .slider{
     height:200px;
+}
+.content{
+display:flex;
+flex-grow: 3;
+}
+.footer{
+    min-height: 125px;
+    flex-basis: 0;
+    flex-grow: 2;
 }

@@ -1,4 +1,4 @@
-const divContainer =document.querySelector(".container")
+const divContainer =document.querySelector(".grid")
 const slider=document.querySelector(".slider");
 const output=document.querySelector(".output");
 const color=document.querySelector(".color");
@@ -8,8 +8,13 @@ let divsArray;
 let div;
 let mouseIsDown=false;
 let colorValue = color.value;
+let size=10;
 
+createGrid();
+paint();
 slider.addEventListener("input",function(element){
+    output.textContent=slider.value;
+    reset();
     createGrid();
     paint();
 });
@@ -18,20 +23,21 @@ function reset(){
 }
 function createGrid(){
     output.textContent=slider.value;
-    let n= output.textContent;
+    size= output.textContent;
         reset();
-        for(i=0;i<n*n;i++)
+        for(i=0;i<size*size;i++)
         {
             div=document.createElement("div");
             div.setAttribute("class","colorDiv");
             divContainer.setAttribute("draggable",false);
             divContainer.appendChild(div);
         }
-        divContainer.style.gridTemplateColumns=`repeat(${n},1fr)`;
-        divContainer.style.gridTemplateRows=`repeat(${n},1fr)`;
+        divContainer.style.gridTemplateColumns=`repeat(${size},1fr)`;
+        divContainer.style.gridTemplateRows=`repeat(${size},1fr)`;
         
              divsArray=document.querySelectorAll(".colorDiv");
 }
+
 function paint(){
     //colors single div
     divsArray.forEach(element=>{
