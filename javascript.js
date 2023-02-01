@@ -3,6 +3,7 @@ const slider=document.querySelector(".slider");
 const output=document.querySelector(".output");
 const color=document.querySelector(".color");
 const resetBtn=document.querySelector(".reset");
+const toggleGrid=document.querySelector(".toggleGrid")
 
 let divsArray;
 let div;
@@ -18,9 +19,6 @@ slider.addEventListener("input",function(element){
     createGrid();
     paint();
 });
-function reset(){
-  divContainer.textContent="";
-}
 function createGrid(){
     output.textContent=slider.value;
     size= output.textContent;
@@ -35,9 +33,10 @@ function createGrid(){
         divContainer.style.gridTemplateColumns=`repeat(${size},1fr)`;
         divContainer.style.gridTemplateRows=`repeat(${size},1fr)`;
         
-             divsArray=document.querySelectorAll(".colorDiv");
-}
+        divsArray=document.querySelectorAll(".colorDiv");
 
+
+}
 function paint(){
     //colors single div
     divsArray.forEach(element=>{
@@ -91,3 +90,20 @@ divsArray.forEach(element=>{
 element.style.backgroundColor="";
 })
 })
+toggleGrid.addEventListener("change",function(event){
+    if(toggleGrid.checked===false)
+    {   
+        document.querySelectorAll(".colorDiv").forEach(element => {
+            element.style.borderStyle="none";
+        });      
+    }
+    else
+    {
+        document.querySelectorAll(".colorDiv").forEach(element => {
+            element.style.borderStyle="solid";
+        });    
+    }
+})
+function reset(){
+  divContainer.textContent="";
+}

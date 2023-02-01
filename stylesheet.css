@@ -7,6 +7,8 @@ height: 100vh;
 text-align:  center;
 display: flex;
 flex-direction: column;
+background-color: rgb(62, 58, 58);
+color:white;
 }
 h1{
     font-size: 80px;
@@ -16,13 +18,17 @@ h1{
 }
 .grid{
 display: grid;
-height: 100%;
-width: 100%;
+height: 500px;
+width: 500px;
+align-self: center;
+background-color: white;
+
 }
-.grid-Container{
-flex-grow: 1;
-margin-right: 250px;
-margin-left: 250px;
+
+.g{
+    display:grid;
+    flex-grow:1;
+    align-items:left;
 }
 .colorDiv{
 border-color: black;
@@ -33,26 +39,41 @@ border-width: 1px;
 .tool-Bar{
     display:flex;
     flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
+    align-items: flex-end;
+    justify-content: center;
+    flex-grow: 1;
     flex-basis: 0;
-    width: 130px;
+gap:20px;
+padding-right: 10px;
 }
 .option-Container{
     display:flex;
-    flex-direction: column;
+    gap:5px;
 }
 input[type="range"][orient="vertical"]{
     writing-mode: bt-lr;
     appearance: slider-vertical;
 }
+
 .slider{
     height:200px;
+    width:10px;
+}
+.slider-Container,.option-Container,.color-Container,.reset-Container,.toggleGrid-Container{
+width:80px;
 }
 .content{
 display:flex;
-flex-grow: 3;
+flex-grow: 1;
+gap:60px;
 }
+.color{
+width:60px;
+height:40px
+
+
+}
+
 .footer{
     min-height: 125px;
     flex-basis: 0;
