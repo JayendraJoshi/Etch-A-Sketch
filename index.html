@@ -9,36 +9,50 @@
     <script src='javascript.js' defer></script>
 </head>
 <body>
-    <h1>Etch-A-Sketch</h1>
-    <div class="content">
-    <div class="tool-Bar">
-        <div class="slider-Container">
-            <input class="slider" type="range" max="50" min="5" step="1" orient="vertical" value="2">
-            <br>
-            <output class="output"></output>
-        </div>
-        <div class="option-Container">
-            <div class="erase-Container">
-                <input type="radio" class="erase" name="option" ><br><label for=".erase">erase</label>
+    <div class="header">
+        <h1>Etch-A-Sketch</h1>
+    </div>
+    <div class="main">  
+        <div class="tool-bar">
+        <h3>Grid</h3>
+        <div class="grid-controls">
+            <div class="slider-container">
+                <input class="slider" type="range" max="50" min="5" step="1" orient="vertical" value="2"><br>
+                <output class="output"></output>
             </div>
-            <div class="brush-Container">
+        <div class="toggle-grid-container">
+            <input type="checkbox" class="toggle-grid" checked="true"><br><label for=".showGrid">show grid</label>
+        </div>
+        </div>      
+        <h3>Color</h3>
+        <div class="color-container">
+        <div class="brush-color-container">
+            <input type="color" class="brush-color" value="#EFEFEF"/><br><label for=".color">color</label>
+        </div>
+        <div class="background-color-container">
+            <input type="color" class="background-color" value="#EFEFEF"/><br><label for=".background-color">background<br>color</label>
+        </div>
+        </div> 
+        <h3>Brush</h3>
+        <div class="option-container">
+            <div class="erase-container">
+                <input type="radio" class="erase" name="option"><br><label for=".erase">erase</label>
+            </div>
+            <div class="brush-container">
                 <input type="radio" class="brush" name="option" checked="true" ><br><label for=".brush">brush</label>
              </div>
         </div>
-        <div class="color-Container">
-            <input type="color" class="color" value="#ff0000"/><br><label for=".color">color</label>
-        </div>  
-        <div class="toggleGrid-Container">
-            <input type="checkbox" class="toggleGrid" checked="true"><br><label for=".showGrid">show grid</label>
+        <h3>Reset</h3>
+        <div class="reset-container">
+            <button class="reset-color">reset<br>painting</button>
+            <button class="reset">reset<br></button>
         </div>
-        <div class="reset-Container">
-            <button class="reset">reset<br>colors</button>
+        </div>
+        <div class="g">
+            <div class="grid"></div>
         </div>
     </div>
-    <div class="g">
-    <div class="grid"></div>
+    <div class="footer">
     </div>
-    </div>
-    <div class="footer"></div>
 </body>
 </html>

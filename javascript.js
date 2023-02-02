@@ -1,9 +1,11 @@
-const divContainer =document.querySelector(".grid")
+const divContainer =document.querySelector(".grid");
 const slider=document.querySelector(".slider");
 const output=document.querySelector(".output");
-const color=document.querySelector(".color");
+const color=document.querySelector(".brush-color");
+const resetColorBtn=document.querySelector(".reset-color");
+const toggleGrid=document.querySelector(".toggle-grid");
+const backgroundColor=document.querySelector(".background-color");
 const resetBtn=document.querySelector(".reset");
-const toggleGrid=document.querySelector(".toggleGrid")
 
 let divsArray;
 let div;
@@ -15,27 +17,25 @@ createGrid();
 paint();
 slider.addEventListener("input",function(element){
     output.textContent=slider.value;
-    reset();
+    removeGrid();
     createGrid();
     paint();
 });
 function createGrid(){
     output.textContent=slider.value;
     size= output.textContent;
-        reset();
+        removeGrid();
         for(i=0;i<size*size;i++)
         {
             div=document.createElement("div");
-            div.setAttribute("class","colorDiv");
+            div.setAttribute("class","color-div");
             divContainer.setAttribute("draggable",false);
             divContainer.appendChild(div);
         }
         divContainer.style.gridTemplateColumns=`repeat(${size},1fr)`;
         divContainer.style.gridTemplateRows=`repeat(${size},1fr)`;
         
-        divsArray=document.querySelectorAll(".colorDiv");
-
-
+        divsArray=document.querySelectorAll(".color-div");
 }
 function paint(){
     //colors single div
@@ -74,7 +74,7 @@ function paint(){
     })
 }
 slider.addEventListener("input",function(element){
-    output.textContent=(this.value + "*" + this.value)
+    output.textContent=(this.value)
 })
 document.body.addEventListener("pointerdown",function(){
     mouseIsDown=true;
@@ -85,7 +85,7 @@ document.body.addEventListener("pointerup",function(){
 color.addEventListener("input",function(){
 colorValue=color.value;
 })
-resetBtn.addEventListener("click",function(){
+resetColorBtn.addEventListener("click",function(){
 divsArray.forEach(element=>{
 element.style.backgroundColor="";
 })
@@ -93,17 +93,32 @@ element.style.backgroundColor="";
 toggleGrid.addEventListener("change",function(event){
     if(toggleGrid.checked===false)
     {   
-        document.querySelectorAll(".colorDiv").forEach(element => {
+        document.querySelectorAll(".color-div").forEach(element => {
             element.style.borderStyle="none";
         });      
     }
     else
     {
-        document.querySelectorAll(".colorDiv").forEach(element => {
+        document.querySelectorAll(".color-div").forEach(element => {
             element.style.borderStyle="solid";
         });    
     }
 })
-function reset(){
-  divContainer.textContent="";
+backgroundColor.addEventListener("input",function(){
+    divContainer.style.backgroundColor=`${backgroundColor.value}`
+
+})
+resetBtn.addEventListener("click",function(){
+    resetSettings();
+})
+function removeGrid(){
+    divContainer.textContent="";
+}
+function resetSettings(){
+    backgroundColor.value="#EFEFEF";
+    color.value="#EFEFEF";
+    slider.value="5";
+    divContainer.style.backgroundColor="#EFEFEF";
+    createGrid();
+    paint();  
 }
