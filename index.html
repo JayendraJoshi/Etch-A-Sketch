@@ -17,7 +17,7 @@
         <h3>Grid</h3>
         <div class="grid-controls">
             <div class="slider-container">
-                <input class="slider" type="range" max="50" min="5" step="1" orient="vertical" value="2"><br>
+                <input class="slider" type="range" max="50" min="10" step="1" orient="vertical" value="10"><br>
                 <output class="output"></output>
             </div>
         <div class="toggle-grid-container">
@@ -27,25 +27,25 @@
         <h3>Color</h3>
         <div class="color-container">
         <div class="brush-color-container">
-            <input type="color" class="brush-color" value="#EFEFEF"/><br><label for=".color">color</label>
+            <input type="color" class="brush-color" value="#F5F5F5"/><br><label for=".color">brush</label>
         </div>
         <div class="background-color-container">
-            <input type="color" class="background-color" value="#EFEFEF"/><br><label for=".background-color">background<br>color</label>
+            <input type="color" class="background-color" value="#F5F5F5"/><br><label for=".background-color">background</label>
         </div>
         </div> 
         <h3>Brush</h3>
         <div class="option-container">
+            <div class="brush-container">
+                <input type="radio" class="brush" name="option" checked="true" ><br><label for=".brush">paint</label>
+             </div>
             <div class="erase-container">
                 <input type="radio" class="erase" name="option"><br><label for=".erase">erase</label>
             </div>
-            <div class="brush-container">
-                <input type="radio" class="brush" name="option" checked="true" ><br><label for=".brush">brush</label>
-             </div>
         </div>
         <h3>Reset</h3>
         <div class="reset-container">
-            <button class="reset-color">reset<br>painting</button>
-            <button class="reset">reset<br></button>
+            <button class="reset-color">painting</button>
+            <button class="reset">painting & settings</button>
         </div>
         </div>
         <div class="g">

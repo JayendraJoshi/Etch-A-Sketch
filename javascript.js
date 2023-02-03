@@ -11,7 +11,6 @@ let divsArray;
 let div;
 let mouseIsDown=false;
 let colorValue = color.value;
-let size=10;
 
 createGrid();
 paint();
@@ -115,10 +114,12 @@ function removeGrid(){
     divContainer.textContent="";
 }
 function resetSettings(){
-    backgroundColor.value="#EFEFEF";
-    color.value="#EFEFEF";
+    backgroundColor.value="#F5F5F5";
+    color.value="#F5F5F5";
     slider.value="5";
-    divContainer.style.backgroundColor="#EFEFEF";
+    divContainer.style.backgroundColor="#F5F5F5";
+    toggleGrid.checked=true;
+    document.querySelector(".brush").checked=true;
     createGrid();
     paint();  
 }
