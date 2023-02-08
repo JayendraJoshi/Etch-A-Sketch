@@ -13,10 +13,10 @@ body{
 }
 .header,.footer{
     display: flex;
-    flex-grow: 1;
-    flex-basis: 0;
+    flex-grow: 0;
+    flex-basis: 100px;
     justify-content: center;
-    align-items: center;                           
+    align-items: center;                         
 }
 h1{
     font-size: 70px;
@@ -28,7 +28,7 @@ h1{
     gap:50px;
     justify-content: space-between;
 }
-.g{
+.grid-div{
     display:grid;
     align-items: center;
     justify-content: start;
@@ -40,6 +40,7 @@ h1{
     height: 500px;
     width: 500px;
     background-color: #F5F5F5;
+    border:5px solid #100b17;
 }
 .color-div{
     border-color: black;
@@ -63,8 +64,11 @@ h3{
     display: flex;
     width: 300px;
 }
-.color-container{
+.customize-grid-container{
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
 }
 .slider{
     height:200px;
@@ -74,27 +78,27 @@ input[type="range"][orient="vertical"]{
     writing-mode: bt-lr;
     appearance: slider-vertical;
 }
-.option-container{
+.brush-controls{
     display:flex;
     gap:5px;
 }
-.slider-container,.toggle-grid-container{
+.slider-container,.customize-grid-container{
     width:150px;
-   background-color: #251a35;
+    background-color: #251a35;
     border:1px solid black;
-    padding:5px;
+    padding:15px;
 }
-.color-container,.reset-container,.option-container{
+.reset-container,.brush-controls{
     display: flex;
     justify-content: space-around;
     align-items: center;
     width:300px;
     background-color: #251a35;
-    padding:10px;
+    padding:15px;
     border: 1px solid black;
 }
 input{
-background-color: #100b17;
+    background-color: #100b17;
 }
 button{
     background-color:#100b17;
@@ -104,4 +108,3 @@ button{
     border-radius: 12px;
     border-style:groove;
 }
-

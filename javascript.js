@@ -2,7 +2,7 @@ const divContainer =document.querySelector(".grid");
 const slider=document.querySelector(".slider");
 const output=document.querySelector(".output");
 const color=document.querySelector(".brush-color");
-const resetColorBtn=document.querySelector(".reset-color");
+const resetPainting=document.querySelector(".reset-painting");
 const toggleGrid=document.querySelector(".toggle-grid");
 const backgroundColor=document.querySelector(".background-color");
 const resetBtn=document.querySelector(".reset");
@@ -40,10 +40,10 @@ function paint(){
     //colors single div
     divsArray.forEach(element=>{
         element.addEventListener("click",function(){
-            if(document.querySelector(".brush").checked===true){
+            if(document.querySelector(".paint").checked===true){
                 element.style.backgroundColor=`${colorValue}`;                                 
             }           
-            else if(document.querySelector(".erase").checked===true){   
+            else if(document.querySelector(".remove-color").checked===true){   
                     element.style.backgroundColor="";                                    
             }   
         })
@@ -51,10 +51,10 @@ function paint(){
     //colors multiple divsArray
     divsArray.forEach(element => {                        
         element.addEventListener("pointerover",function(){                            
-            if(document.querySelector(".brush").checked===true && mouseIsDown===true){
+            if(document.querySelector(".paint").checked===true && mouseIsDown===true){
                 element.style.backgroundColor=`${colorValue}`;                                 
             }           
-            else if(document.querySelector(".erase").checked===true &&mouseIsDown===true){
+            else if(document.querySelector(".remove-color").checked===true &&mouseIsDown===true){
                 element.style.backgroundColor="";                                    
             }                                     
         })  
@@ -62,10 +62,10 @@ function paint(){
     //colors first of multiple divsArray
     divsArray.forEach(element=>{
         element.addEventListener("mousedown",function(){
-            if(document.querySelector(".brush").checked===true){
+            if(document.querySelector(".paint").checked===true){
                 element.style.backgroundColor=`${colorValue}`;                                 
             }           
-            else if(document.querySelector(".erase").checked===true)
+            else if(document.querySelector(".remove-color").checked===true)
             {
             element.style.backgroundColor="";                                    
             }  
@@ -84,7 +84,7 @@ document.body.addEventListener("pointerup",function(){
 color.addEventListener("input",function(){
 colorValue=color.value;
 })
-resetColorBtn.addEventListener("click",function(){
+resetPainting.addEventListener("click",function(){
 divsArray.forEach(element=>{
 element.style.backgroundColor="";
 })
